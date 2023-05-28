@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<script>
+  function Click(JKEP){
+    let JK=["グー","チョキ","パー"];
+    let JKE=Math.floor(Math.random()*3);
+    let JKP=["グー","チョキ","パー"];
+              if (JKE === JKEP) {
+                  Result_end = "あいこです。もう1回！";
+              } else if(JKEP === 0 && JKE === 1) {
+                  Result_end = "あなたの勝ちです！";
+              }else if(JKEP === 1 && JKE === 2) {
+                  Result_end = "あなたの勝ちです！";
+              }else if(JKEP === 2 && JKE === 0) {
+                  Result_end = "あなたの勝ちです！";
+              }else {
+                  Result_end = "あなたの負けです。。残念！";
+              }
+              document.getElementById("JAN").innerHTML = "コンピューターの出した手は" + JK[JKE] ;
+              document.getElementById("judgement").innerHTML =  Result_end ;
+              document.getElementById("JANimage1").src="img/JAN" + JKE + ".png";
+  }
+  </script>
+<link rel="stylesheet" href="css/sample.css">
+<title>じゃんけん</title>
+</head>
+<body>
+
+<header>
+  <h1>コンピューターとじゃんけん！</h1>
+</header>
+
+<main>
+  <h3>自分の手を↓から選んでクリック！</h3>
+  <ul>
+    <li button onclick="Click(0);"> <img src="img/JAN0.png" alt="" height=200px></li>
+    <li button onclick="Click(1);"> <img src="img/JAN1.png" alt="" height=200px></li>
+    <li button onclick="Click(2);"> <img src="img/JAN2.png" alt="" height=200px></li>
+  </ul>
+  <div class="result">
+    <div class="resultsentence">
+      <div id="JAN"></div>
+      <div id="judgement"></div>
+    </div>
+    <img id="JANimage1" src="JAN.png" height=200px></img>
+  </div> 
+</main>
+
+
+<footer></footer>
+
+</body>
+</html>
